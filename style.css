@@ -604,4 +604,16 @@ body.dark-mode .back-link a {
   .hero-profile-wrapper {
     margin-top: 20px;
   }
+  /* Force profile photo to be a small circular thumbnail */
+.profile-photo {
+  width: 130px;      /* adjust size here */
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  display: block;
+  margin: 0 auto;
+}
+
 }
