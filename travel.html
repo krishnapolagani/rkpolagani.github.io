@@ -8,13 +8,16 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Same header/nav as index.html -->
+
+  <!-- Header (matches index.html / sports.html) -->
   <header>
     <div class="container">
       <div class="top-bar">
-        <a href="index.html" class="brand">RK POLAGANI</a>
+        <a href="index.html" class="brand">
+          <span class="brand-mark">RK</span> POLAGANI
+        </a>
         <nav>
-          <a href="index.html#about">Home</a>
+          <a href="index.html">Home</a>
           <a href="index.html#about">About</a>
           <a href="index.html#experience">Experience</a>
           <a href="index.html#skills">Skills</a>
@@ -28,70 +31,106 @@
   </header>
 
   <main class="container">
-    <section class="page-header">
-      <h1>Travelling experiences</h1>
-      <p>
-        A collection of trips, moments and places that have shaped how I think about people,
-        culture and work. This page is a simple log of where I’ve been and what stayed with me.
-      </p>
+
+    <!-- Intro section -->
+    <section class="reveal">
+      <div class="card">
+        <h1 style="margin-bottom:10px;">Travelling Experiences</h1>
+        <p class="card-subtitle">
+          Places, moments, and journeys that shaped how I see people, culture, and work.
+        </p>
+        <p>
+          Travel has helped me connect perspectives across countries and cultures — from Asia
+          to North America. Each trip brings new context, whether it’s understanding how people
+          live and work, or simply taking time to reset and reflect.
+        </p>
+        <p>
+          This page is a simple log of some of those experiences and the memories that stayed
+          with me along the way.
+        </p>
+      </div>
     </section>
 
-    <section>
+    <!-- Highlights / Trips -->
+    <section class="reveal">
       <div class="section-caption">Highlights</div>
-      <h2>Recent or memorable trips</h2>
+      <div class="card">
+        <h2>Recent or memorable trips</h2>
 
-      <div class="trip-list">
-        <article class="trip-card">
-          <h3>Example trip title</h3>
-          <div class="trip-meta">City / Country &nbsp;·&nbsp; Year</div>
-          <p>
-            Short 2–3 line summary of why this trip mattered to you – people you met,
-            something you learned, or an experience that stayed with you.
-          </p>
-        </article>
+        <div class="travel-list">
+          <!-- Example 1 -->
+          <div class="card">
+            <h3>Example trip title</h3>
+            <div class="item-meta">City / Country · Year</div>
+            <p>
+              Short 2–3 line summary of why this trip mattered to you – people you met,
+              something you learned, or an experience that stayed with you.
+            </p>
+          </div>
 
-        <article class="trip-card">
-          <h3>Another destination</h3>
-          <div class="trip-meta">City / Country &nbsp;·&nbsp; Year</div>
-          <p>
-            You can replace these examples with real trips: maybe your first solo travel,
-            a trip with friends, or a place connected to your career or studies.
-          </p>
-        </article>
+          <!-- Example 2 -->
+          <div class="card">
+            <h3>Another destination</h3>
+            <div class="item-meta">City / Country · Year</div>
+            <p>
+              You can replace these examples with real trips: your first solo travel,
+              a trip with friends, or a place connected to your career or studies.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section>
+    <!-- Gallery -->
+    <section class="reveal">
       <div class="section-caption">Gallery</div>
-      <h2>Photos</h2>
-      <p style="font-size:0.9rem; color:var(--text-muted);">
-        A few photos from different places. I keep it small and simple so the page loads fast.
-      </p>
+      <div class="card">
+        <h2>Photos</h2>
+        <p style="font-size:0.9rem; color:var(--text-muted);">
+          A few photos from different places. I keep it small and simple so the page loads fast.
+        </p>
 
-      <div class="gallery">
-        <!-- Replace image filenames with your real ones -->
-        <div class="gallery-item">
-          <img src="images/trip1.jpg" alt="Trip 1 description" />
-          <div class="gallery-caption">Short caption about this moment or place.</div>
+        <div class="gallery">
+          <!-- Replace image filenames with your real ones -->
+          <div class="gallery-item">
+            <img src="images/trip1.jpg" alt="Trip 1 description" />
+            <div class="caption">Short caption about this moment or place.</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/trip2.jpg" alt="Trip 2 description" />
+            <div class="caption">Another memory you want to highlight.</div>
+          </div>
         </div>
-        <div class="gallery-item">
-          <img src="images/trip2.jpg" alt="Trip 2 description" />
-          <div class="gallery-caption">Another memory you want to highlight.</div>
-        </div>
+      </div>
+
+      <div class="back-link">
+        ← <a href="index.html">Back to main profile</a>
       </div>
     </section>
 
-    <div class="back-link">
-      ← <a href="index.html">Back to main profile</a>
-    </div>
   </main>
 
   <footer>
-    © <span id="year"></span> Ramakrishna (RK) Polagani. Travelling experiences.
+    <div class="container">
+      © <span id="year"></span> Ramakrishna (RK) Polagani. Travelling experiences.
+    </div>
   </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Scroll Reveal Logic (same pattern as sports.html)
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+      revealElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) {
+          el.classList.add('reveal-visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
   </script>
 </body>
 </html>
