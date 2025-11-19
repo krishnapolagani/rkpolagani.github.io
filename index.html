@@ -53,7 +53,11 @@
 <header>
   <div class="container">
     <div class="top-bar">
-      <a href="index.html" class="brand">RK POLAGANI</a>
+      <!-- Updated brand to use brand-mark badge -->
+      <a href="index.html" class="brand">
+        <span class="brand-mark">RK</span>
+        Polagani
+      </a>
       <nav>
         <a href="index.html" class="active">Home</a>
         <a href="#about">About</a>
@@ -68,7 +72,7 @@
 
     <div class="hero">
       <div class="hero-grid">
-        <div>
+        <div class="reveal" data-delay="1">
           <h1>Ramakrishna Polagani (RK)</h1>
           <h2>Business Systems Analyst • PLM Architect • Traveller • Sports Enthusiast</h2>
           <p>
@@ -81,8 +85,12 @@
             <span class="tag">Stakeholder Collaboration</span>
             <span class="tag">Implementation &amp; Support</span>
           </div>
+          <!-- Apple-style primary CTA -->
+          <a href="#projects" class="pill" style="margin-top:4px;display:inline-block;">
+            View selected projects
+          </a>
         </div>
-        <div>
+        <div class="reveal" data-delay="2">
           <div class="hero-card">
             <h3>What I typically do</h3>
             <ul>
@@ -103,7 +111,7 @@
   <div class="container">
 
     <!-- ABOUT -->
-    <section id="about">
+    <section id="about" class="reveal" data-delay="1">
       <div class="card">
         <h2>About</h2>
         <p class="card-subtitle">Short background and focus areas.</p>
@@ -136,7 +144,7 @@
     </section>
 
     <!-- EXPERIENCE -->
-    <section id="experience">
+    <section id="experience" class="reveal" data-delay="1">
       <div class="card">
         <h2>Experience Snapshot</h2>
         <p class="card-subtitle">High-level view of roles and responsibilities.</p>
@@ -194,7 +202,7 @@
     </section>
 
     <!-- SKILLS -->
-    <section id="skills">
+    <section id="skills" class="reveal" data-delay="1">
       <div class="card">
         <h2>Skills &amp; Tools</h2>
         <p class="card-subtitle">Mix of domains, methods, and platforms.</p>
@@ -229,7 +237,7 @@
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects">
+    <section id="projects" class="reveal" data-delay="1">
       <div class="card">
         <h2>Selected Projects</h2>
         <p class="card-subtitle">Representative examples of PLM and integration work.</p>
@@ -269,14 +277,14 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact">
+    <section id="contact" class="reveal" data-delay="1">
       <div class="card">
         <h2>Contact</h2>
         <p class="card-subtitle">Best ways to reach me.</p>
         <div class="contact-row">
           <span>Email:
-            <a href="mailto:">@gmail.com</a>
-            <!-- Replace with your actual email address -->
+            <!-- replace with your real email -->
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
           </span>
           <span>LinkedIn:
             <a href="https://www.linkedin.com/in/ramakrishna-polagani-67297ab8/" target="_blank" rel="noopener">
@@ -290,7 +298,6 @@
         </p>
 
         <!-- Resume Download Button -->
-        <!-- Update the href to the correct path/name of your PDF resume -->
         <p style="margin-top:16px;">
           <a href="assets/Ramakrishna-Polagani-Resume.pdf" class="pill" target="_blank" rel="noopener">
             Download Résumé (PDF)
@@ -310,6 +317,23 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Optional: add simple IntersectionObserver to toggle .reveal-visible
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  } else {
+    // Fallback: show all
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('reveal-visible'));
+  }
 </script>
 </body>
 </html>
