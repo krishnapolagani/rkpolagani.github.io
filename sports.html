@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RK Polagani | Sports Enthusiast</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Sports experiences and interests of Ramakrishna (RK) Polagani." />
+  <style>
+    :root {
+      --bg: #f5f5f7;
+      --card-bg: #ffffff;
+      --primary: #004b8d;
+      --text-main: #1f2430;
+      --text-muted: #6b7280;
+      --border-soft: #e5e7eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+    }
+    header {
+      position: sticky; top: 0;
+      background: rgba(245,245,247,0.95);
+      border-bottom: 1px solid var(--border-soft);
+      backdrop-filter: blur(8px);
+    }
+    .nav {
+      max-width: 1000px; margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav-links a {
+      margin-left: 1rem; color: var(--text-muted);
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .container {
+      max-width: 1000px; margin: 2rem auto; padding: 1rem;
+    }
+    h1 { margin-top: 0; font-size: 2rem; }
+    .section-caption {
+      font-size: 0.8rem; color: var(--text-muted);
+      margin-bottom: 0.2rem; text-transform: uppercase;
+    }
+    .sports-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+      gap: 1rem; margin-top: 1rem;
+    }
+    .card {
+      background: var(--card-bg); padding: 1rem;
+      border-radius: 12px; border: 1px solid var(--border-soft);
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+      gap: 0.75rem; margin-top: 1rem;
+    }
+    .gallery-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border-soft);
+      border-radius: 10px; overflow: hidden;
+    }
+    .gallery-item img {
+      width: 100%; height: 180px; object-fit: cover;
+    }
+    .caption {
+      padding: 0.4rem 0.6rem; color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+    .back-link { margin-top: 2rem; font-size: 0.85rem; }
+    footer { margin-top: 2rem; text-align: center; font-size: 0.8rem; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <div class="nav-left">Ramakrishna (RK) Polagani</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="travel.html">Travelling</a>
+      <a href="sports.html">Sports</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <h1>Sports & Fitness</h1>
+  <p>
+    This space is dedicated to the sports I follow, the ones I play, and the experiences
+    that shaped my interest in fitness, teamwork, discipline, and competition.
+  </p>
+
+  <div class="section-caption">Interests</div>
+  <h2>Sports I follow or play</h2>
+  <div class="sports-list">
+    <div class="card">
+      <h3>Example Sport</h3>
+      <p>Short description about what you like about it.</p>
+    </div>
+    <div class="card">
+      <h3>Another Sport</h3>
+      <p>Why it matters to you — teamwork, fitness, strategy, etc.</p>
+    </div>
+  </div>
+
+  <div class="section-caption">Gallery</div>
+  <h2>Sports photos</h2>
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="images/sport1.jpg" alt="Sports photo" />
+      <div class="caption">Caption about this sports moment.</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/sport2.jpg" alt="Sports photo" />
+      <div class="caption">Second sports caption.</div>
+    </div>
+  </div>
+
+  <div class="back-link">
+    ← <a href="index.html">Back to main profile</a>
+  </div>
+</main>
+
+<footer>
+  © <span id="year"></span> Ramakrishna (RK) Polagani
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
