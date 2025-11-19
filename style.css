@@ -1,18 +1,18 @@
-/* ---------- Design tokens ---------- */
+/* ---------- Design tokens (Royal Dark Blue theme) ---------- */
 :root {
-  --bg: #f5f7fb;
-  --bg-soft: #edf2ff;
+  --bg: #f3f4f8;
+  --bg-soft: #e4e7f5;
   --card-bg: #ffffff;
 
-  --primary: #0d6efd;
-  --primary-dark: #0a58ca;
-  --primary-soft: #e3f0ff;
+  --primary: #1b3c92;        /* royal blue */
+  --primary-dark: #0a1a44;   /* deep navy */
+  --primary-soft: #d7e0ff;   /* soft blue tint */
 
-  --text-main: #1f2933;
-  --text-muted: #6b7280;
-  --border: #e2e8f0;
+  --text-main: #1f2533;
+  --text-muted: #6f7a8a;
+  --border: #d7deea;
 
-  --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --shadow-soft: 0 10px 28px rgba(11, 20, 46, 0.14);
 }
 
 /* ---------- Global reset & base ---------- */
@@ -22,13 +22,15 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
   background-color: var(--bg);
   color: var(--text-main);
   line-height: 1.6;
@@ -44,10 +46,10 @@ body {
 /* ---------- Header & Navigation ---------- */
 
 header {
-  background: linear-gradient(135deg, #0d6efd, #0a58ca);
+  background: linear-gradient(135deg, #0a1a44, #1b3c92);
   color: #ffffff;
   padding: 18px 0 26px;
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
+  box-shadow: 0 14px 32px rgba(7, 12, 32, 0.55);
 }
 
 .top-bar {
@@ -84,18 +86,20 @@ nav {
 }
 
 nav a {
-  color: #e5edff;
+  color: #dde5ff;
   text-decoration: none;
   font-size: 14px;
-  padding: 4px 8px;
+  padding: 4px 10px;
   border-radius: 999px;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease,
+    transform 0.1s ease;
 }
 
 nav a:hover,
 nav a:focus {
   background-color: rgba(255, 255, 255, 0.16);
   color: #ffffff;
+  transform: translateY(-1px);
 }
 
 /* Optional active state (add class="active" to any nav link) */
@@ -126,12 +130,12 @@ nav a.active {
   margin: 0 0 12px;
   font-size: 16px;
   font-weight: 500;
-  color: #dbeafe;
+  color: #c7d5ff;
 }
 
 .hero p {
   margin: 0 0 16px;
-  color: #e5edff;
+  color: #e3e8ff;
 }
 
 .tag-list {
@@ -145,30 +149,30 @@ nav a.active {
   font-size: 12px;
   padding: 4px 10px;
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.3);
-  border: 1px solid rgba(191, 219, 254, 0.8);
-  color: #e5edff;
+  background: rgba(9, 16, 40, 0.5);
+  border: 1px solid rgba(191, 210, 255, 0.85);
+  color: #e3e8ff;
 }
 
 .hero-card {
-  background: rgba(15, 23, 42, 0.85);
+  background: rgba(5, 10, 30, 0.9);
   border-radius: 14px;
   padding: 16px 16px 18px;
   border: 1px solid rgba(148, 163, 184, 0.7);
-  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.4);
+  box-shadow: 0 18px 40px rgba(4, 7, 20, 0.8);
 }
 
 .hero-card h3 {
   margin: 0 0 8px;
   font-size: 14px;
-  color: #e5edff;
+  color: #e3e8ff;
 }
 
 .hero-card ul {
   margin: 0;
   padding-left: 18px;
   font-size: 13px;
-  color: #e5edff;
+  color: #dde5ff;
 }
 
 /* ---------- Main content & cards ---------- */
@@ -189,13 +193,27 @@ section {
   box-shadow: var(--shadow-soft);
   position: relative;
   overflow: hidden;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top left,
+    rgba(27, 60, 146, 0.08),
+    transparent 55%
+  );
+  pointer-events: none;
 }
 
 .card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.14);
-  border-color: rgba(37, 99, 235, 0.4);
+  box-shadow: 0 16px 46px rgba(9, 12, 38, 0.2);
+  border-color: rgba(27, 60, 146, 0.45);
+  background-color: #ffffff;
 }
 
 .card h2 {
@@ -251,7 +269,7 @@ section {
   border-radius: 999px;
   background: var(--primary-soft);
   color: var(--primary-dark);
-  border: 1px solid rgba(37, 99, 235, 0.3);
+  border: 1px solid rgba(27, 60, 146, 0.4);
 }
 
 /* Contact row */
@@ -298,7 +316,7 @@ section {
   border: 1px solid var(--border);
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 26px rgba(9, 12, 38, 0.18);
 }
 
 .gallery-item img {
@@ -336,7 +354,7 @@ footer {
   padding: 14px 16px 18px;
   font-size: 12px;
   color: var(--text-muted);
-  background-color: #f9fafb;
+  background-color: #f7f8fc;
 }
 
 /* ---------- Mobile tweaks ---------- */
