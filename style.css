@@ -1,38 +1,53 @@
+/* ---------- Design tokens ---------- */
 :root {
-  --bg: #f5f5f7;
+  --bg: #f5f7fb;
+  --bg-soft: #edf2ff;
   --card-bg: #ffffff;
+
+  --primary: #0d6efd;
+  --primary-dark: #0a58ca;
+  --primary-soft: #e3f0ff;
+
   --text-main: #1f2933;
   --text-muted: #6b7280;
-  --accent: #2563eb;
-  --accent-soft: #e0edff;
-  --border: #e5e7eb;
+  --border: #e2e8f0;
+
+  --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
 }
 
-/* Base layout & typography */
-* {
+/* ---------- Global reset & base ---------- */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-body {
+html, body {
   margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background-color: var(--bg);
   color: var(--text-main);
   line-height: 1.6;
 }
 
-/* Shared container */
+/* Utility container */
 .container {
-  max-width: 980px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 0 16px;
 }
 
-/* Shared header + nav (dark gradient like index.html) */
+/* ---------- Header & Navigation ---------- */
+
 header {
-  background: linear-gradient(135deg, #111827, #1f2937);
-  color: #fff;
-  padding: 24px 16px;
+  background: linear-gradient(135deg, #0d6efd, #0a58ca);
+  color: #ffffff;
+  padding: 18px 0 26px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.25);
 }
 
 .top-bar {
@@ -43,127 +58,167 @@ header {
 }
 
 .brand {
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   font-size: 14px;
   text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background: #ffffff;
   opacity: 0.9;
 }
 
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
 nav a {
-  color: #e5e7eb;
+  color: #e5edff;
   text-decoration: none;
   font-size: 14px;
-  margin-left: 16px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-nav a:hover {
+nav a:hover,
+nav a:focus {
+  background-color: rgba(255, 255, 255, 0.16);
   color: #ffffff;
-  text-decoration: underline;
 }
 
-/* Generic hero layout (used on index, you can reuse on other pages if needed) */
+/* Optional active state (add class="active" to any nav link) */
+nav a.active {
+  background-color: #ffffff;
+  color: var(--primary-dark);
+}
+
+/* ---------- Hero (index main header area) ---------- */
+
 .hero {
-  padding: 32px 0 16px;
+  padding: 28px 0 14px;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 2.5fr) minmax(0, 1.5fr);
-  gap: 24px;
+  grid-template-columns: minmax(0, 2.4fr) minmax(0, 1.6fr);
+  gap: 28px;
+  align-items: stretch;
 }
 
 .hero h1 {
   margin: 0 0 8px;
-  font-size: 28px;
+  font-size: 32px;
 }
 
 .hero h2 {
   margin: 0 0 12px;
   font-size: 16px;
   font-weight: 500;
-  color: #9ca3af;
+  color: #dbeafe;
 }
 
 .hero p {
   margin: 0 0 16px;
-  color: #e5e7eb;
+  color: #e5edff;
 }
 
 .tag-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .tag {
   font-size: 12px;
   padding: 4px 10px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(156, 163, 175, 0.4);
-  color: #e5e7eb;
+  background: rgba(15, 23, 42, 0.3);
+  border: 1px solid rgba(191, 219, 254, 0.8);
+  color: #e5edff;
 }
 
 .hero-card {
-  background-color: rgba(15, 23, 42, 0.75);
-  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.85);
+  border-radius: 14px;
   padding: 16px 16px 18px;
-  border: 1px solid rgba(55, 65, 81, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.4);
 }
 
 .hero-card h3 {
   margin: 0 0 8px;
   font-size: 14px;
-  color: #e5e7eb;
+  color: #e5edff;
 }
 
 .hero-card ul {
   margin: 0;
   padding-left: 18px;
   font-size: 13px;
-  color: #d1d5db;
+  color: #e5edff;
 }
 
-/* Main content + cards */
+/* ---------- Main content & cards ---------- */
+
 main {
-  padding: 24px 0 40px;
+  padding: 28px 0 40px;
 }
 
 section {
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .card {
   background-color: var(--card-bg);
-  border-radius: 10px;
-  padding: 18px 18px 20px;
+  border-radius: 16px;
+  padding: 20px 20px 22px;
   border: 1px solid var(--border);
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.03);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.14);
+  border-color: rgba(37, 99, 235, 0.4);
 }
 
 .card h2 {
   margin-top: 0;
-  margin-bottom: 8px;
-  font-size: 18px;
+  margin-bottom: 6px;
+  font-size: 19px;
 }
 
 .card-subtitle {
   margin-top: 0;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   font-size: 13px;
   color: var(--text-muted);
 }
 
 .two-col {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
   gap: 18px;
 }
 
 .item {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .item-title {
@@ -176,11 +231,16 @@ section {
   color: var(--text-muted);
 }
 
+.card ul {
+  padding-left: 18px;
+}
+
+/* Pills / skill chips */
 .pill-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin: 0;
+  margin: 10px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -189,9 +249,9 @@ section {
   font-size: 12px;
   padding: 4px 10px;
   border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent);
-  border: 1px solid #c4d4ff;
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  border: 1px solid rgba(37, 99, 235, 0.3);
 }
 
 /* Contact row */
@@ -203,7 +263,7 @@ section {
 }
 
 .contact-row a {
-  color: var(--accent);
+  color: var(--primary-dark);
   text-decoration: none;
 }
 
@@ -211,7 +271,66 @@ section {
   text-decoration: underline;
 }
 
-/* Footer */
+/* ---------- Sports / Travel helpers ---------- */
+
+.sports-list,
+.travel-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.sports-list .card,
+.travel-list .card {
+  padding-top: 16px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.gallery-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.caption {
+  padding: 6px 10px 10px;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* Back link under sports / travel */
+.back-link {
+  margin-top: 24px;
+  font-size: 13px;
+}
+
+.back-link a {
+  color: var(--primary-dark);
+  text-decoration: none;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Footer ---------- */
+
 footer {
   border-top: 1px solid var(--border);
   padding: 14px 16px 18px;
@@ -220,47 +339,8 @@ footer {
   background-color: #f9fafb;
 }
 
-/* Sports / Travel specific helpers */
-.sports-list,
-.travel-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
+/* ---------- Mobile tweaks ---------- */
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 0.75rem;
-  margin-top: 1rem;
-}
-
-.gallery-item {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.caption {
-  padding: 0.4rem 0.6rem;
-  color: var(--text-muted);
-  font-size: 0.8rem;
-}
-
-.back-link {
-  margin-top: 2rem;
-  font-size: 0.85rem;
-}
-
-/* Mobile tweaks */
 @media (max-width: 720px) {
   .hero-grid {
     grid-template-columns: minmax(0, 1fr);
@@ -273,18 +353,18 @@ footer {
 
   nav {
     margin-top: 8px;
-    display: flex;
-    flex-wrap: wrap;
+    justify-content: flex-start;
   }
 
   nav a {
     margin-left: 0;
-    margin-right: 12px;
-    margin-bottom: 8px;
-    font-size: 13px;
   }
 
-  header {
-    padding-bottom: 18px;
+  main {
+    padding-top: 20px;
+  }
+
+  .two-col {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
