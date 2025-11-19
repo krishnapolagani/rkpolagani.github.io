@@ -59,7 +59,6 @@
 <header>
   <div class="container">
     <div class="top-bar">
-      <!-- Updated brand to use brand-mark badge -->
       <a href="index.html" class="brand">
         <span class="brand-mark">RK</span>
         Polagani
@@ -78,6 +77,7 @@
 
     <div class="hero">
       <div class="hero-grid">
+        <!-- LEFT COLUMN -->
         <div class="reveal" data-delay="1">
           <h1>Ramakrishna Polagani (RK)</h1>
           <h2>Business Systems Analyst • PLM Architect • Traveller • Sports Enthusiast</h2>
@@ -91,18 +91,20 @@
             <span class="tag">Stakeholder Collaboration</span>
             <span class="tag">Implementation &amp; Support</span>
           </div>
-          <!-- Apple-style primary CTA -->
           <a href="#projects" class="pill" style="margin-top:4px;display:inline-block;">
             View selected projects
           </a>
         </div>
+
+        <!-- RIGHT COLUMN -->
         <div class="reveal" data-delay="2">
-          <!-- Profile photo card -->
-          <div class="hero-profile-card">
+          <!-- Circular profile photo aligned above the card -->
+          <div class="hero-profile-wrapper">
             <img
               src="assets/images/Profile/IMG-8092.JPG"
               alt="Ramakrishna Polagani"
-              class="profile-photo"
+              class="hero-profile-img"
+              loading="lazy"
             >
           </div>
 
@@ -312,7 +314,6 @@
           build, and manage products.
         </p>
 
-        <!-- Resume Download Button -->
         <p style="margin-top:16px;">
           <a href="assets/Ramakrishna-Polagani-Resume.pdf" class="pill" target="_blank" rel="noopener">
             Download Résumé (PDF)
@@ -333,7 +334,7 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Optional: add simple IntersectionObserver to toggle .reveal-visible
+  // Reveal-on-scroll
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -346,7 +347,6 @@
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   } else {
-    // Fallback: show all
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('reveal-visible'));
   }
 </script>
