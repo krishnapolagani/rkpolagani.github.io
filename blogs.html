@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RK Polagani | Blog & Articles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Blog posts and articles by Ramakrishna (RK) Polagani on PLM, integrations, travel, sports, and personal reflections." />
+  <link rel="icon" type="image/png" href="images/favicon-rk-logo.png" id="favicon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="container">
+    <div class="top-bar">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">RK</span> POLAGANI
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="travel.html">Travelling</a>
+        <a href="sports.html">Sports</a>
+        <a href="blogs.html" class="active">Blog</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- Hero / Intro -->
+  <section class="reveal">
+    <div class="card" style="max-width: 780px; margin: 0 auto;">
+      <h1 style="margin-bottom:10px;">Blog &amp; Articles</h1>
+      <p class="card-subtitle">
+        Longer stories and reflections that don’t fit into a LinkedIn post.
+      </p>
+      <p>
+        This space is for writing about the things I care about — PLM and integrations,
+        working across teams and countries, travel journeys like Leh Ladakh, and what
+        sports have taught me about focus and discipline.
+      </p>
+      <p>
+        Think of it as a slow, written version of my experiences: some posts technical,
+        some personal, all based on what I’ve actually seen and learned over the years.
+      </p>
+    </div>
+  </section>
+
+  <!-- Latest posts -->
+  <section class="reveal">
+    <div class="section-caption">Latest Posts</div>
+    <div class="card">
+      <div class="travel-list">
+
+        <!-- Post 1 -->
+        <div class="card">
+          <h3>
+            <a href="blog-001-leh-ladakh.html">
+              My 2017 Solo Trip to Leh Ladakh — A Journey That Changed Me
+            </a>
+          </h3>
+          <div class="item-meta">Travel · Reflection</div>
+          <p>
+            How a solo journey from Hyderabad to the mountains of Ladakh shifted my
+            perspective on risk, comfort zones, and people — and why I still think
+            about that trip whenever I make big decisions.
+          </p>
+        </div>
+
+        <!-- Post 2 -->
+        <div class="card">
+          <h3>
+            <a href="blog-002-plm-digital-thread.html">
+              Building a Digital Thread: Practical Lessons from PLM Integrations
+            </a>
+          </h3>
+          <div class="item-meta">PLM · Systems · Experience</div>
+          <p>
+            Real-world lessons from connecting PLM, ERP, ALM, and QMS — what actually
+            works, what usually breaks, and how to keep stakeholders aligned.
+          </p>
+        </div>
+
+        <!-- Post 3 -->
+        <div class="card">
+          <h3>
+            <a href="blog-003-sports-mindset.html">
+              What Sports Taught Me About Work, Focus, and Handling Pressure
+            </a>
+          </h3>
+          <div class="item-meta">Sports · Mindset</div>
+          <p>
+            From SRH chases to Blue Jays games and F1 races — the patterns and
+            mindsets that translate directly into how I approach projects and change.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Optional: Categories / Sections -->
+  <section class="reveal">
+    <div class="section-caption">Topics</div>
+    <div class="card">
+      <div class="two-col">
+        <div>
+          <h2 style="margin-top:0;">PLM, Systems &amp; Work</h2>
+          <p>
+            Posts about PLM implementations, integrations, digital thread, and
+            the practical side of working as a Business Systems Analyst and
+            PLM Architect across different industries.
+          </p>
+          <ul>
+            <li>Teamcenter, Agile PLM, Windchill, MechWorks PDM.</li>
+            <li>Connecting PLM with ERP, MES, ALM, and QMS.</li>
+            <li>Workflows, change control, data quality, and adoption.</li>
+          </ul>
+        </div>
+        <div>
+          <h2 style="margin-top:0;">Travel, Sports &amp; Life</h2>
+          <p>
+            More personal writing — solo trips, moving countries, following
+            sports, and how all of that influences how I think about people,
+            teams, and decisions.
+          </p>
+          <ul>
+            <li>Leh Ladakh and other journeys.</li>
+            <li>Cricket, baseball, Formula 1.</li>
+            <li>Mindset, discipline, and balance.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © <span id="year"></span> Ramakrishna (RK) Polagani · Blog
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealOnScroll = () => {
+    revealElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 80) {
+        el.classList.add('reveal-visible');
+      }
+    });
+  };
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
+</script>
+
+<!-- Theme toggle button -->
+<button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark mode">☾</button>
+
+<!-- Theme toggle script (same as other pages) -->
+<script>
+  const body = document.body;
+  const toggleBtn = document.getElementById('themeToggle');
+  const faviconLink = document.getElementById('favicon');
+
+  const LIGHT_ICON = '☾';
+  const DARK_ICON  = '☀️';
+
+  const LIGHT_FAVICON = 'images/favicon-rk-logo.png';
+  const DARK_FAVICON  = 'images/favicon-rk-logo-dark.png';
+
+  function setTheme(isDark) {
+    if (isDark) {
+      body.classList.add('dark-mode');
+      toggleBtn.textContent = DARK_ICON;
+      if (faviconLink) faviconLink.href = DARK_FAVICON;
+    } else {
+      body.classList.remove('dark-mode');
+      toggleBtn.textContent = LIGHT_ICON;
+      if (faviconLink) faviconLink.href = LIGHT_FAVICON;
+    }
+  }
+
+  // default: dark mode
+  setTheme(true);
+
+  toggleBtn.addEventListener('click', () => {
+    const currentlyDark = body.classList.contains('dark-mode');
+    setTheme(!currentlyDark);
+  });
+</script>
+
+<!-- Parallax glow effect -->
+<script>
+  const updateParallax = () => {
+    const offset = window.scrollY * 0.18;
+    document.documentElement.style.setProperty('--hero-parallax', `${-offset}px`);
+  };
+
+  window.addEventListener('scroll', updateParallax);
+  updateParallax();
+</script>
+
+</body>
+</html>
