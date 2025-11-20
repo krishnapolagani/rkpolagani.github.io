@@ -21,27 +21,6 @@
     .sports-list .card {
       box-shadow: none;
     }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-top: 16px;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 230px;
-      object-fit: cover;
-      border-radius: 16px;
-      display: block;
-    }
-
-    .gallery-item .caption {
-      font-size: 0.85rem;
-      margin-top: 6px;
-      color: var(--text-muted);
-    }
   </style>
 </head>
 <body>
@@ -72,19 +51,19 @@
   <!-- Hero -->
   <section class="reveal">
     <div class="card sports-hero">
-      <h1 style="margin-bottom:10px;">Sports & Fitness</h1>
+      <h1 style="margin-bottom:10px;">Sports &amp; Fitness</h1>
       <p class="card-subtitle">
         Energy, discipline, and inspiration — on and off the field.
       </p>
       <p>
         Sports have always been a big part of my life. They bring balance, competition, teamwork,
         and a sense of rhythm to my routine. From the intensity of IPL cricket to the tactical
-        pauses in baseball and the engineering brilliance of Formula 1  every sport brings
+        pauses in baseball and the engineering brilliance of Formula 1 — every sport brings
         something unique that inspires me personally and professionally.
       </p>
       <p>
         Whether I’m watching SRH at a stadium, cheering for the Blue Jays in Toronto, or following
-        the precision of Max Verstappen in F1  sports keep me motivated and grounded.
+        the precision of Max Verstappen in F1 — sports keep me motivated and grounded.
       </p>
     </div>
   </section>
@@ -100,7 +79,7 @@
         <div class="card">
           <h3>Cricket — Sunrisers Hyderabad (SRH)</h3>
           <p>
-            A long-standing SRH supporter. I enjoy the strategic chess-like feel of T20 cricket 
+            A long-standing SRH supporter. I enjoy the strategic, chess-like feel of T20 cricket —
             powerplays, strike rotations, death bowling, and momentum shifts that can change a match in minutes.
           </p>
         </div>
@@ -138,17 +117,17 @@
 
         <div class="gallery-item">
           <img src="assets/images/Sports/cricket.jpg" alt="Cricket moments" />
-          <div class="caption">IPL energy  SRH matches, super overs, and memorable comebacks.</div>
+          <div class="caption">IPL energy – SRH matches, super overs, and memorable comebacks.</div>
         </div>
 
         <div class="gallery-item">
           <img src="assets/images/Sports/baseball.jpg" alt="Blue Jays baseball" />
-          <div class="caption">Blue Jays at Rogers Centre  the roar of a full stadium.</div>
+          <div class="caption">Blue Jays at Rogers Centre – the roar of a full stadium.</div>
         </div>
 
         <div class="gallery-item">
           <img src="assets/images/Sports/f1.jpg" alt="Formula 1 race" />
-          <div class="caption">Max Verstappen speed, precision, and championship mindset.</div>
+          <div class="caption">Max Verstappen – speed, precision, and a championship mindset.</div>
         </div>
 
       </div>
@@ -181,6 +160,24 @@
   };
   window.addEventListener('scroll', revealOnScroll);
   revealOnScroll();
+</script>
+
+<!-- Theme toggle button -->
+<button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark mode">☾</button>
+
+<!-- Theme toggle script -->
+<script>
+  const body = document.body;
+  const toggleBtn = document.getElementById('themeToggle');
+
+  // default = dark mode
+  if (!body.classList.contains('dark-mode')) {
+    body.classList.add('dark-mode');
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+  });
 </script>
 
 </body>
