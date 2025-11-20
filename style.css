@@ -69,6 +69,8 @@ header::after {
   opacity: 0.85;
   pointer-events: none;
   z-index: -1;
+  transform: translateY(var(--hero-parallax, 0px));
+  transition: transform 0.06s linear;
 }
 
 header::before {
