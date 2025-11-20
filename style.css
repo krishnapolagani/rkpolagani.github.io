@@ -50,10 +50,47 @@ body {
 /* ---------- Header & Navigation ---------- */
 
 header {
+  position: relative;
   background: linear-gradient(135deg, #0a1a44, #1b3c92);
   color: #ffffff;
   padding: 22px 0 30px;
   box-shadow: 0 18px 40px rgba(7, 12, 32, 0.65);
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* soft blurred “Apple-like” shapes behind the hero */
+header::before,
+header::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(26px);
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: -1;
+}
+
+header::before {
+  width: 420px;
+  height: 420px;
+  top: -140px;
+  right: -120px;
+  background: radial-gradient(circle at center,
+    rgba(129, 140, 248, 0.9),
+    rgba(15, 23, 42, 0.1)
+  );
+}
+
+header::after {
+  width: 360px;
+  height: 360px;
+  bottom: -160px;
+  left: -80px;
+  background: radial-gradient(circle at center,
+    rgba(56, 189, 248, 0.7),
+    rgba(15, 23, 42, 0.05)
+  );
 }
 
 .top-bar {
@@ -181,6 +218,19 @@ nav a.active {
   background: rgba(9, 16, 40, 0.5);
   border: 1px solid rgba(191, 210, 255, 0.85);
   color: #e3e8ff;
+}
+
+/* optional “glass” treatment if you want to wrap hero content in .hero-glass */
+.hero-glass {
+  border-radius: 24px;
+  padding: 24px 22px;
+  background: radial-gradient(circle at top left,
+      rgba(248, 250, 252, 0.12),
+      rgba(15, 23, 42, 0.65)
+    );
+  border: 1px solid rgba(148, 163, 184, 0.65);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 
 /* Profile area in hero – circular image sitting above the card */
@@ -458,7 +508,7 @@ section:nth-of-type(odd) .card {
   text-decoration: underline;
 }
 
-/* ---------- Back to top button ---------- */
+/* ---------- Back to top & theme toggle buttons ---------- */
 
 .back-to-top-btn {
   position: fixed;
@@ -492,9 +542,34 @@ section:nth-of-type(odd) .card {
   box-shadow: 0 16px 36px rgba(15, 23, 42, 0.75);
 }
 
-body.dark-mode .back-to-top-btn {
-  background: rgba(15, 23, 42, 1);
-  color: #f9fafb;
+/* NEW: theme toggle button (for dark/light mode) */
+.theme-toggle-btn {
+  position: fixed;
+  right: 16px;
+  bottom: 70px; /* just above back-to-top */
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: rgba(248, 250, 252, 0.9);
+  color: #0f172a;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.45);
+  z-index: 50;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.theme-toggle-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.65);
 }
 
 /* ---------- Footer ---------- */
@@ -517,6 +592,21 @@ body.dark-mode {
 body.dark-mode header {
   background: linear-gradient(135deg, #020617, #0b1437);
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.75);
+}
+
+/* tint the blurred header shapes slightly differently in dark mode */
+body.dark-mode header::before {
+  background: radial-gradient(circle at center,
+    rgba(129, 140, 248, 0.85),
+    rgba(15, 23, 42, 0.3)
+  );
+}
+
+body.dark-mode header::after {
+  background: radial-gradient(circle at center,
+    rgba(56, 189, 248, 0.6),
+    rgba(15, 23, 42, 0.3)
+  );
 }
 
 body.dark-mode nav a {
@@ -568,6 +658,17 @@ body.dark-mode .back-link a {
   color: #c7d2fe;
 }
 
+body.dark-mode .back-to-top-btn {
+  background: rgba(15, 23, 42, 1);
+  color: #f9fafb;
+}
+
+body.dark-mode .theme-toggle-btn {
+  background: rgba(15, 23, 42, 0.96);
+  color: #e5e7ff;
+  border-color: #1e293b;
+}
+
 /* ---------- Mobile tweaks ---------- */
 
 @media (max-width: 720px) {
@@ -604,16 +705,16 @@ body.dark-mode .back-link a {
   .hero-profile-wrapper {
     margin-top: 20px;
   }
-  /* Force profile photo to be a small circular thumbnail */
-.profile-photo {
-  width: 130px;      /* adjust size here */
-  height: 130px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid white;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-  display: block;
-  margin: 0 auto;
-}
 
+  /* Force profile photo to be a small circular thumbnail */
+  .profile-photo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    display: block;
+    margin: 0 auto;
+  }
 }
