@@ -192,43 +192,49 @@
   });
 </script>
 
-<!-- Theme toggle -->
-<button class="theme-toggle-btn" id="themeToggle">Dark</button>
-<script>
-  var body = document.body;
-  var btn = document.getElementById('themeToggle');
-  var fav = document.getElementById('favicon');
+<!-- Theme toggle button -->
+<button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark mode">☾</button>
 
-  var LIGHT_FAV = 'images/favicon-rk-logo.png';
-  var DARK_FAV  = 'images/favicon-rk-logo-dark.png';
+<!-- Theme toggle script -->
+<script>
+  const body = document.body;
+  const toggleBtn = document.getElementById('themeToggle');
+  const faviconLink = document.getElementById('favicon');
+
+  const LIGHT_ICON = '☾';
+  const DARK_ICON  = '☀️';
+
+  const LIGHT_FAVICON = 'images/favicon-rk-logo.png';
+  const DARK_FAVICON  = 'images/favicon-rk-logo-dark.png';
 
   function setTheme(isDark) {
     if (isDark) {
       body.classList.add('dark-mode');
-      btn.textContent = 'Light';
-      if (fav) fav.href = DARK_FAV;
+      toggleBtn.textContent = DARK_ICON;
+      if (faviconLink) faviconLink.href = DARK_FAVICON;
     } else {
       body.classList.remove('dark-mode');
-      btn.textContent = 'Dark';
-      if (fav) fav.href = LIGHT_FAV;
+      toggleBtn.textContent = LIGHT_ICON;
+      if (faviconLink) faviconLink.href = LIGHT_FAVICON;
     }
   }
 
-  // Default to dark mode
+  // default: dark mode
   setTheme(true);
 
-  btn.onclick = function () {
-    var isDark = body.classList.contains('dark-mode');
-    setTheme(!isDark);
-  };
+  toggleBtn.addEventListener('click', () => {
+    const currentlyDark = body.classList.contains('dark-mode');
+    setTheme(!currentlyDark);
+  });
 </script>
 
-<!-- Parallax header glow -->
+<!-- Parallax glow effect -->
 <script>
-  function updateParallax() {
-    var offset = window.scrollY * 0.18;
-    document.documentElement.style.setProperty('--hero-parallax', String(-offset) + 'px');
-  }
+  const updateParallax = () => {
+    const offset = window.scrollY * 0.18;
+    document.documentElement.style.setProperty('--hero-parallax', `${-offset}px`);
+  };
+
   window.addEventListener('scroll', updateParallax);
   updateParallax();
 </script>
