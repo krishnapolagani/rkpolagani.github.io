@@ -837,8 +837,10 @@ body.dark-mode footer {
 
 /* ---------- Mobile tweaks (UPDATED) ---------- */
 
+
 @media (max-width: 720px) {
-  /* Keep brand + weather on first row, nav on second row */
+
+  /* Keep brand + weather on the SAME row */
   .top-bar {
     display: flex;
     flex-wrap: wrap;
@@ -849,17 +851,19 @@ body.dark-mode footer {
     order: 0;
   }
 
-  .toronto-meta {
+  .toronto-meta { 
     order: 1;
     margin-left: auto;
     font-size: 11px;
     gap: 4px;
+    white-space: nowrap;
   }
 
   .toronto-label {
-    display: none; /* hide 'Toronto •' on very small screens */
+    display: none;
   }
 
+  /* Put navigation on its own row below */
   nav {
     order: 2;
     flex-basis: 100%;
@@ -867,7 +871,7 @@ body.dark-mode footer {
     justify-content: flex-start;
   }
 
-  /* Existing hero/layout tweaks */
+  /* Existing layout rules (unchanged) */
   .hero-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 24px;
@@ -897,4 +901,3 @@ body.dark-mode footer {
     margin-top: 20px;
   }
 }
-
