@@ -104,6 +104,7 @@ header::after {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+  flex-wrap: wrap; /* NEW: allow wrapping on smaller widths */
 }
 
 /* ---------- Brand / Logo ---------- */
@@ -175,6 +176,22 @@ nav a:focus {
 nav a.active {
   background-color: #ffffff;
   color: var(--primary-dark);
+}
+
+/* ---------- Toronto time & weather ---------- */
+
+.toronto-meta {
+  margin-left: auto;             /* pushes it to the right on wide screens */
+  font-size: 12px;
+  color: #dde5ff;
+  opacity: 0.85;
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* Dark mode treatment */
+body.dark-mode .toronto-meta {
+  color: #e2e8f0;
 }
 
 /* ---------- Hero (index main header area) ---------- */
@@ -835,5 +852,11 @@ body.dark-mode footer {
 
   .hero-profile-wrapper {
     margin-top: 20px;
+  }
+    .toronto-meta {
+    margin-left: 0;
+    align-self: flex-end;
+    font-size: 11px;
+    margin-top: 4px;
   }
 }
